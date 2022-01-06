@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
-
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:paypal/app/modules/contacts/data.dart';
-
+import 'package:paypal/app/modules/components/bottom_bar.dart';
 import '../controllers/contacts_controller.dart';
-import 'components/contact_card.dart';
+import 'components/contact_list.dart';
 import 'components/search_widget.dart';
 
 class ContactsView extends GetView<ContactsController> {
@@ -46,37 +44,16 @@ class ContactsView extends GetView<ContactsController> {
           ),
         ],
       ),
-      body: Column(
+      body: Stack(
         children: [
-          SearchWidget(),
-          SizedBox(height: 24),
-          Expanded(
-            child: ListView.builder(
-              physics: BouncingScrollPhysics(),
-              shrinkWrap: true,
-              itemCount: email.length,
-              itemBuilder: (context, index) {
-                name.sort();
-                return ContactCard(
-                  name: name[index],
-                  email: email[index],
-                );
-              },
-            ),
-          )
-        ],
-      ),
-      bottomNavigationBar: BottomNavigationBar(
-        currentIndex: 1,
-        iconSize: 32,
-        backgroundColor: Colors.white,
-        fixedColor: Color(0XFF243656),
-        elevation: 0,
-        items: const <BottomNavigationBarItem>[
-          BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
-          BottomNavigationBarItem(icon: Icon(Icons.person), label: "Contacts"),
-          BottomNavigationBarItem(
-              icon: Icon(Icons.settings), label: "Settings"),
+          Column(
+            children: [
+              SearchWidget(),
+              SizedBox(height: 24),
+              ContactList(),
+            ],
+          ),
+          BottomBar(),
         ],
       ),
     );

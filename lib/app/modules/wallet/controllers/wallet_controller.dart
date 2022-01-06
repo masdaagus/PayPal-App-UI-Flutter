@@ -1,6 +1,8 @@
 import 'package:get/get.dart';
 
-class ContactsController extends GetxController {
+class WalletController extends GetxController {
+  //TODO: Implement WalletController
+
   final count = 0.obs;
   @override
   void onInit() {

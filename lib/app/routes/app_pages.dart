@@ -6,6 +6,8 @@ import 'package:paypal/app/modules/home/bindings/home_binding.dart';
 import 'package:paypal/app/modules/home/views/home_view.dart';
 import 'package:paypal/app/modules/login/bindings/login_binding.dart';
 import 'package:paypal/app/modules/login/views/login_view.dart';
+import 'package:paypal/app/modules/wallet/bindings/wallet_binding.dart';
+import 'package:paypal/app/modules/wallet/views/wallet_view.dart';
 
 part 'app_routes.dart';
 
@@ -29,6 +31,11 @@ class AppPages {
       name: _Paths.CONTACTS,
       page: () => ContactsView(),
       binding: ContactsBinding(),
+    ),
+    GetPage(
+      name: _Paths.WALLET,
+      page: () => WalletView(),
+      binding: WalletBinding(),
     ),
   ];
 }
